@@ -1,4 +1,4 @@
-package com.example.db;
+package cn.mointe.itservice.it.db;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DBHelper extends SQLiteOpenHelper {
 
 	public static final String DB_NAME = "itservice.db";// 数据库名称
-	public static final int DB_VERSION = 2;// 数据库版本
+	public static final int DB_VERSION = 1;// 数据库版本
 
 	/* 问题表 start */
 	public static final String QSTN_TABLE_NAME = "question";// 表名称
@@ -22,7 +22,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
 	public static final String QSTN_COLUMN_END_TIME = "qstn_end_time";// 处理完毕时间
 	public static final String QSTN_COLUMN_STATUS = "qstn_status";// 状态
-	public static final String QSTN_COLUMN_COMMENTS = "comments";// 注解
+	public static final String QSTN_COLUMN_COMMENTS = "qstn_comments";// 注解
 	/* 问题表 end */
 
 	/* 评论表 start */
@@ -103,10 +103,10 @@ public class DBHelper extends SQLiteOpenHelper {
 	 */
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-		db.execSQL("drop table if exists" + QSTN_TABLE_NAME);
-		db.execSQL("drop table if exists" + CATG_TABLE_NAME);
-		db.execSQL("drop table if exists" + GDE_TABLE_NAME);
-		db.execSQL("drop table if exists" + RVW_TABLE_NAME);
+		db.execSQL("drop table if exists " + QSTN_TABLE_NAME);
+		db.execSQL("drop table if exists " + CATG_TABLE_NAME);
+		db.execSQL("drop table if exists " + GDE_TABLE_NAME);
+		db.execSQL("drop table if exists " + RVW_TABLE_NAME);
 		onCreate(db);
 	}
 
